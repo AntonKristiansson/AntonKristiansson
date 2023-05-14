@@ -25,8 +25,15 @@
 .navbar {
   background-color: var(--main_bg_color);  
 }
+#collapsibleNavbar {
+  position: absolute;
+  right: 10px;
+}
 #nav_name {
   color: var(--light_text_color);
+}
+#nav_name_mobile {
+  display: none;
 }
 .nav-link {
   color: #0acfb1d8;
@@ -450,6 +457,17 @@
     content: "\a";
     white-space: pre;
   }
+  
+
+@media (max-width: 767px) {
+  #nav_name_mobile {
+    display: inline;
+    color: var(--light_text_color);
+  }
+  #nav_name {
+    display: none;
+  }
+}
 
 @media (max-width: 400px) {
   #my_name {
@@ -460,7 +478,4 @@
   }
   
 }  
-
-
-  
 }

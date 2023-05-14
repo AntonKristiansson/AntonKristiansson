@@ -25,21 +25,27 @@ function App() {
     <div id="line2"></div>
       
       <div id="top_page" class="vh-100">
-        <nav class="navbar px-5 fixed-top">
-          <div class="navbar-header">
+        <nav class="navbar navbar-expand-md fixed-top">
+          <div class="navbar-header ps-5">
             <a id="nav_name" class="navbar-brand" href="#">Anton Kristiansson</a>
-          </div>  
-          <ul class="nav">
-            <li class="nav-item px-4">
-              <a class="nav-link active px-0" href="#About">&lt;About /&gt;</a>
-            </li>
-            <li class="nav-item px-4">
-              <a class="nav-link px-0" href="#Projects">&lt;Projects /&gt;</a>
-            </li>
-            <li class="nav-item px-4">
-              <a class="nav-link px-0" href="#Contact">&lt;Contact /&gt;</a>
-            </li>
-          </ul>
+            <a id="nav_name_mobile" class="navbar-brand" href="#">Anton</a>
+          </div>
+          <button class="navbar-toggler navbar-dark me-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar"> 
+            <ul class="nav">
+              <li class="nav-item px-4">
+                <a class="nav-link active px-0" href="#About">&lt;About /&gt;</a>
+              </li>
+              <li class="nav-item px-4">
+                <a class="nav-link px-0" href="#Projects">&lt;Projects /&gt;</a>
+              </li>
+              <li class="nav-item px-4">
+                <a class="nav-link px-0" href="#Contact">&lt;Contact /&gt;</a>
+              </li>
+            </ul>
+          </div>
         </nav>
         <div id="Home" class="vh-100 container-fluid d-flex align-items-center justify-content-center">
           <div>

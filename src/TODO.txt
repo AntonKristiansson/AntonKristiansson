@@ -1,4 +1,2 @@
 1. skapa upp api till emailjs
-2. skapa nav knapp för mobile
-3. ta bort ström animation för mobile
 6. litet spel kanske som på google 404?
