@@ -15,7 +15,7 @@
   position: absolute;
   height: 1px;
   width: 10vh;
-  left: 0;
+  right: 100%;
   background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, var(--accent_color) 75%, var(--accent_color) 100%);
   animation: horizontal_beam 40s 0s infinite;
   animation-fill-mode: forwards;
@@ -236,7 +236,7 @@
   position: absolute;
   height: 1px;
   width: 10vh;
-  left: 0;
+  right: 100%;
   background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, var(--accent_color) 75%, var(--accent_color) 100%);
   animation: horizontal_beam 40s 6s infinite;
   animation-fill-mode: forwards;
@@ -262,7 +262,7 @@
   position: absolute;
   height: 1px;
   width: 10vh;
-  left: 0;
+  right: 100%;
   background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, var(--accent_color) 75%, var(--accent_color) 100%);
   animation: horizontal_beam 40s 0s infinite;
   animation-fill-mode: forwards;
@@ -382,9 +382,10 @@
 
 
 @keyframes horizontal_beam {
-  0% {left: -10%;}  
-  10% {left: 100%;}
-  100% {left: 100%;}
+  0% {right: 100%; width: 10vh;}  
+  10% {right: 0; width: 10vh;}
+  13% {width: 0vh;}
+  100% {right: 0; width: 0vh;}
 }
 
 
@@ -403,7 +404,7 @@
   position: absolute;
   height: 10vh;
   width: 100%;
-  top: -50%;
+  bottom: 100%;
   left: 0;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, var(--accent_color) 75%, var(--accent_color) 100%);
   animation: vertical_beam 20s 10s infinite;
@@ -424,7 +425,7 @@
   position: absolute;
   height: 15vh;
   width: 100%;
-  top: -50%;
+  bottom: 100%;
   left: 0;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, var(--accent_color) 75%, var(--accent_color) 100%);
   animation: vertical_beam 20s 11s infinite;
@@ -432,9 +433,10 @@
   animation-timing-function: ease;
 }
 @keyframes vertical_beam {
-  0% {top: -10%;}
-  45% {top: 100%;}  
-  100% {top: 100%; }
+  0% {bottom: 100%;}
+  45% {bottom: 0; height: 15vh;}
+  50% {height: 0vh;}  
+  100% {bottom: 0; height: 0vh;}
 }
 
 

@@ -19,7 +19,7 @@ function App() {
 
 
   return (      
-    <div classname="Portfolio" class="overflow-hidden font-monospace position-relative" data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+    <div classname="Portfolio" class="font-monospace position-relative" data-bs-spy="scroll" data-bs-target="#collapsibleNavbar">
       
     <div id="line"></div>
     <div id="line2"></div>
@@ -36,7 +36,7 @@ function App() {
           <div class="collapse navbar-collapse" id="collapsibleNavbar"> 
             <ul class="nav">
               <li class="nav-item px-4">
-                <a class="nav-link active px-0" href="#About">&lt;About /&gt;</a>
+                <a class="nav-link px-0" href="#About">&lt;About /&gt;</a>
               </li>
               <li class="nav-item px-4">
                 <a class="nav-link px-0" href="#Projects">&lt;Projects /&gt;</a>
