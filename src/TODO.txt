@@ -1,4 +1,2 @@
 1. skapa upp api till emailjs
 6. litet spel kanske som på chrome no network?
-3. ibland buggar lightening vertikala ut och skapar extra vit utrymme under  contact
-4. få scrollspy å funka

@@ -1,20 +1,30 @@
 import './App.css';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
+
 function App() {
+
+  const EMAIL_API_KEY = process.env.REACT_APP_EMAIL_API_KEY;
+  const [email_success, setEmail_success] = useState(false);
+  const [email_error, setEmail_error] = useState(false);
 
   const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setEmail_error(false);
+    setEmail_success(false); 
 
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
+    emailjs.sendForm('service_q1wcgxx', 'template_1gey9zh', form.current, EMAIL_API_KEY)
       .then((result) => {
           console.log(result.text);
+          setEmail_success(true);
       }, (error) => {
           console.log(error.text);
+          setEmail_error(true);
       });
+      e.target.reset();
   };
 
 
@@ -169,7 +179,7 @@ function App() {
                 </div>
                 <div class="card-body">
                   <h5 class="card-title">NotesCalc</h5>
-                  <p class="card-text">Productivity website with a fully functional calculator and notes taking. Notes can be deleted and edited after creation and also offer color-coding. All notes are saved to Localstorage to have them saved.</p>                  
+                  <p class="card-text">Productivity website with a calculator and notes taking. Notes can be deleted and edited after creation and also offer color-coding. All notes are saved to Localstorage to have them saved for later use.</p>                  
                 </div>                
                 <div id="card_footer">
                   <a id="live_site" class="btn me-3" href="https://antonkristiansson.github.io/NotesCalc/" target="_blank">Live Site</a>
@@ -202,33 +212,23 @@ function App() {
         </div>
       </div>
 
-      <div id="Contact" class="container-fluid pb-5">
+      <div id="Contact" class="container-fluid">
         <div class="container">
           <h2 class="py-5 text-center fs-1">Contact me</h2> 
-
-          {/*
-          <form ref={form} onSubmit={sendEmail}>
-            <label>Name</label>
-            <input type="text" name="user_name" />
-            <label>Email</label>
-            <input type="email" name="user_email" />
-            <label>Message</label>
-            <textarea name="message" />
-            <input type="submit" value="Send"a />
-          </form>
-          */}
 
           <form ref={form} onSubmit={sendEmail}>
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Email address</label>
-              <input type="email" class="form-control" placeholder="name@example.com" />
+              <input type="email" name="user_email" class="form-control" placeholder="name@example.com" required/>
             </div>
             <div class="mb-3">
               <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-              <textarea class="form-control input-focus-box-shadow" id="exampleFormControlTextarea1" rows="3" placeholder="Write me a message..."></textarea>
+              <textarea name="message" class="form-control input-focus-box-shadow" id="exampleFormControlTextarea1" rows="3" placeholder="Write me a message..." required></textarea>
             </div>
             <button id="send_email" type="submit" class="btn" value="Send">Send Email</button>
           </form>
+          {email_success?<p id="email_success" class="text-center">Email sent, ill get back to you as soon as possible!</p>:null}
+          {email_error?<p id="email_error" class="text-center">Something went wrong, please try again or contact me at Razeranton@gmail.com</p>:null}
 
 
       </div>

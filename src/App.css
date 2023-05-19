@@ -350,6 +350,7 @@
   background-color: var(--main_bg_color);  
   color: var(--light_text_color);
   background-image: url("../public/bg2.png");
+  padding-bottom: 200px;
 }
 
 .form-control {
@@ -374,6 +375,20 @@
 }
 #send_email:hover {
   box-shadow: 0 0 5px 1px #0acfb180;
+}
+#email_success {
+  margin-top: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  color: rgb(2, 182, 2);
+}
+#email_error {
+  margin-top: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  color: rgb(204, 19, 19);
 }
 
 
