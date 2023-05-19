@@ -8,6 +8,7 @@ function App() {
   const EMAIL_API_KEY = process.env.REACT_APP_EMAIL_API_KEY;
   const [email_success, setEmail_success] = useState(false);
   const [email_error, setEmail_error] = useState(false);
+  const [Showtooltip, setShowtooltip] = useState(false);
 
   const form = useRef();
 
@@ -16,7 +17,7 @@ function App() {
     setEmail_error(false);
     setEmail_success(false); 
 
-    emailjs.sendForm('service_q1wcgxx', 'template_1gey9zh', form.current, EMAIL_API_KEY)
+    emailjs.sendForm('service_q1wcgxx', 'template_1gey9zh', form.current, "EMAIL_API_KEY")
       .then((result) => {
           console.log(result.text);
           setEmail_success(true);
@@ -26,6 +27,14 @@ function App() {
       });
       e.target.reset();
   };
+
+  const copy_email = () => {
+    navigator.clipboard.writeText("razeranton@gmail.com")
+    setShowtooltip(true)
+    setTimeout(() => {
+      setShowtooltip(false);
+    }, 2000);
+  }
 
 
   return (      
@@ -214,8 +223,11 @@ function App() {
 
       <div id="Contact" class="container-fluid">
         <div class="container">
-          <h2 class="py-5 text-center fs-1">Contact me</h2> 
-
+          <h2 class="pt-5 pb-3 text-center fs-1">Contact me</h2>
+          <div class="text-center pb-3">
+            <span id="contact_info">Use the form below to send me a message @ </span><span id="my_email" onClick={copy_email}>razeranton@gmail.com</span>
+            {Showtooltip?<span id="copied_success">Copied to tooltip</span>:null} 
+          </div>
           <form ref={form} onSubmit={sendEmail}>
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Email address</label>
@@ -227,8 +239,8 @@ function App() {
             </div>
             <button id="send_email" type="submit" class="btn" value="Send">Send Email</button>
           </form>
-          {email_success?<p id="email_success" class="text-center">Email sent, ill get back to you as soon as possible!</p>:null}
-          {email_error?<p id="email_error" class="text-center">Something went wrong, please try again or contact me at Razeranton@gmail.com</p>:null}
+          {email_success?<p id="email_success" class="text-center">Email sent, I'll get back to you as soon as possible!</p>:null}
+          {email_error?<p id="email_error" class="text-center">Something went wrong, please try again or contact me at <a href = "mailto: razeranton@gmail.com">razeranton@gmail.com</a></p>:null}
 
 
       </div>

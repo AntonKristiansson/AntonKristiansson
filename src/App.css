@@ -352,7 +352,18 @@
   background-image: url("../public/bg2.png");
   padding-bottom: 200px;
 }
-
+#my_email {
+  color: var(--accent_color);
+  cursor: pointer;
+}
+#copied_success {
+  position: absolute;
+  background-color: black;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 13px;
+  margin-right: 10px;
+}
 .form-control {
   background-color: var(--off_bg_color);
   color: var(--light_text_color);
