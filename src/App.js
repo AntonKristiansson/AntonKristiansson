@@ -38,34 +38,37 @@ function App() {
 
 
   return (      
-    <div classname="Portfolio" class="font-monospace position-relative" data-bs-spy="scroll" data-bs-target="#collapsibleNavbar">
+    <div classname="Portfolio" class="font-monospace position-relative" data-bs-spy="scroll" data-bs-target="#navmenu">
       
     <div id="line"></div>
     <div id="line2"></div>
       
       <div id="top_page" class="vh-100">
-        <nav class="navbar navbar-expand-md fixed-top">
-          <div class="navbar-header ps-5">
+        
+      <nav class="navbar navbar-expand-md fixed-top px-4">        
+          <div class="navbar-header">
             <a id="nav_name" class="navbar-brand" href="#">Anton Kristiansson</a>
             <a id="nav_name_mobile" class="navbar-brand" href="#">Anton</a>
-          </div>
-          <button class="navbar-toggler navbar-dark me-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+          </div>              
+          <button class="navbar-toggler m-2 navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="collapsibleNavbar"> 
-            <ul class="nav">
-              <li class="nav-item px-4">
-                <a class="nav-link px-0" href="#About">&lt;About /&gt;</a>
+
+          <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a href="#About" class="nav-link">About</a>
               </li>
-              <li class="nav-item px-4">
-                <a class="nav-link px-0" href="#Projects">&lt;Projects /&gt;</a>
+              <li class="nav-item">
+                <a href="#Projects" class="nav-link">Projects</a>
               </li>
-              <li class="nav-item px-4">
-                <a class="nav-link px-0" href="#Contact">&lt;Contact /&gt;</a>
+              <li class="nav-item">
+                <a href="#Contact" class="nav-link">Contact</a>
               </li>
             </ul>
-          </div>
-        </nav>
+          </div>        
+      </nav>
+
         <div id="Home" class="vh-100 container-fluid d-flex align-items-center justify-content-center">
           <div>
             <div id="hello_name_container">              
