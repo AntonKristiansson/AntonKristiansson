@@ -38,7 +38,7 @@ function App() {
 
 
   return (      
-    <div classname="Portfolio" class="font-monospace position-relative" data-bs-spy="scroll" data-bs-target="#navmenu">
+    <div classname="Portfolio" class="font-monospace position-relative" data-bs-spy="scroll" data-bs-target="#navmenu" data-bs-offset="100">
       
     <div id="line"></div>
     <div id="line2"></div>

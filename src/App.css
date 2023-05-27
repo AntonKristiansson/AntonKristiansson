@@ -508,6 +508,16 @@
     text-align: center;
     margin-top: 10px;
   }
+  #About {
+    scroll-margin-top: 3rem;
+  }
+  #Projects {
+    scroll-margin-top: 3rem;
+  }
+  #Contact {
+    scroll-margin-top: 3rem;
+  }
+
   
 
 }
@@ -519,9 +529,6 @@
   #hello_text {
     font-size: 30px;
   }
-  #my_titles {
-  }
-  
   
 }  
 }
