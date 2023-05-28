@@ -74,7 +74,7 @@ function App() {
             <div id="hello_name_container">              
               <span id="hello_text">Hello, my name is </span>
               <span id="my_name"></span>
-              <div id="my_titles" class="text-center">Web Developer & UX-Designer</div>            
+              <div id="my_titles" class="text-center">Front-end Developer & UX-Designer</div>            
             </div>
             <div class="mt-5 text-center">
               <a id="CV" class="btn me-5" href='CV_2023.pdf' download>Download CV</a>
