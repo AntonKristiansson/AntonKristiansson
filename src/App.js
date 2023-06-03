@@ -1,7 +1,6 @@
 import './App.css';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-
 
 function App() {
 
@@ -36,38 +35,87 @@ function App() {
     }, 2000);
   }
 
+  const [IsOpen, setIsOpen] = useState(false);
+
+  const OpenBurger = () => {
+    setIsOpen(current => !current);
+  }
+
+  const [CurrentSection, SetCurrentSection] = useState("");
+
+  useEffect(() => {
+
+    const sections = document.querySelectorAll("#About, #Projects, #Contact");
+    const navLi = document.querySelectorAll(".nav-link");    
+
+    window.onscroll = () => {
+    
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (window.pageYOffset >= sectionTop - 800) {
+          SetCurrentSection(section.getAttribute("id")); }
+      });    
+      
+    };
+    navLi.forEach((li) => {
+        li.classList.remove("active");
+        if (li.classList.contains(CurrentSection)) {
+          li.classList.add("active");
+        }
+      });
+  })
 
   return (      
-    <div classname="Portfolio" class="font-monospace position-relative" data-bs-spy="scroll" data-bs-target="#navmenu" data-bs-offset="100">
+    <div classname="Portfolio" class="font-monospace position-relative">
       
     <div id="line"></div>
     <div id="line2"></div>
       
       <div id="top_page" class="vh-100">
         
-      <nav class="navbar navbar-expand-md fixed-top px-4">        
+        <nav class="navbar navbar-expand-md fixed-top px-4"> 
+
           <div class="navbar-header">
             <a id="nav_name" class="navbar-brand" href="#">Anton Kristiansson</a>
             <a id="nav_name_mobile" class="navbar-brand" href="#">Anton</a>
           </div>              
-          <button class="navbar-toggler m-2 navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+          <button onClick={OpenBurger} class="navbar-toggler m-2 navbar-dark">
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div class="collapse navbar-collapse" id="navmenu">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a href="#About" class="nav-link">About</a>
-              </li>
-              <li class="nav-item">
-                <a href="#Projects" class="nav-link">Projects</a>
-              </li>
-              <li class="nav-item">
-                <a href="#Contact" class="nav-link">Contact</a>
-              </li>
-            </ul>
-          </div>        
-      </nav>
+          <div className='desktop'>
+            <div class="navbar-collapse" id="navmenu">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a href="#About" class="nav-link About">About</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#Projects" class="nav-link Projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#Contact" class="nav-link Contact">Contact</a>
+                </li>
+              </ul>
+            </div>  
+          </div>  
+
+            {IsOpen ? 
+            <div className='mobile'>
+            <div class="navbar-collapse">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a href="#About" class="nav-link About" onClick={OpenBurger}>About</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#Projects" class="nav-link Projects" onClick={OpenBurger}>Projects</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#Contact" class="nav-link Contact" onClick={OpenBurger}>Contact</a>
+                </li>
+              </ul>
+            </div>
+            </div>:null}     
+        </nav>
 
         <div id="Home" class="vh-100 container-fluid d-flex align-items-center justify-content-center">
           <div>
